@@ -8,9 +8,9 @@ function ajaxCall(url, params, successFunction, errorFunction, async) {
         async : async,
         dataType : 'json',
         contentType : "application/x-www-form-urlencoded; charset=UTF-8", // AJAX contentType
-        success : function(data) {
+        success : function(result) {
             if (typeof (successFunction) == 'function'){
-                successFunction(data);
+                successFunction(result);
             }
         },
         error : function(xhr, status, error) {
@@ -21,4 +21,7 @@ function ajaxCall(url, params, successFunction, errorFunction, async) {
             return;
         }
     });
+}
+function getCode(){
+
 }
