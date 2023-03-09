@@ -45,7 +45,15 @@
     </repositories>
 
 	<dependencies>
-		<!-- 표준프레임워크 실행환경 -->
+        <!-- DB 환경 -->
+        <!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>3.1.2</version>
+        </dependency>
+
+        <!-- 표준프레임워크 실행환경 -->
         <dependency>
 		    <groupId>org.egovframe.rte</groupId>
 		    <artifactId>org.egovframe.rte.ptl.mvc</artifactId>
