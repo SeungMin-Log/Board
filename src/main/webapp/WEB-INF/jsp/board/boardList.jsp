@@ -103,29 +103,85 @@
             <h2>Board</h2>
         </div>
         <div class="menu">
-            <a href="#" class="item item1">Home</a>
-            <a href="#" class="item item2">Gallery</a>
-            <a href="#" class="item item3">Weddings</a>
-            <a href="#" class="item item4">FAQ</a>
-            <a href="#" class="item item5">Booking</a>
+            <a href="#" class="item item1">Menu</a>
+            <a href="#" class="item item2">Menu</a>
+            <a href="#" class="item item3">Menu</a>
+            <a href="#" class="item item4">Menu</a>
+            <a href="#" class="item item5">Menu</a>
         </div>
     </header>
     <div class="container" style="padding-top: 30px">
+        <h1 style="padding-bottom: 10px;">테스트</h1>
         <form id="searchForm" action="">
+            <!-- 현재 페이지 -->
             <input id="currentPage" name="currentPage" hidden="hidden">
-
-            <table class="table" style="text-align: center">
-                <thead class="tableHead">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">제목</th>
-                        <th scope="col">작성일</th>
-                        <th scope="col">작성자</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody" class="tableBody"></tbody>
-            </table>
+            <!-- 검색 조건 -->
+<%--            <div>
+                <table class="table table-bordered" style="text-align: center;">
+                    <colgroup>
+                        <col width="12.5%">
+                        <col width="12.5%">
+                        <col width="12.5%">
+                        <col width="12.5%">
+                        <col width="12.5%">
+                        <col width="12.5%">
+                        <col width="12.5%">
+                        <col width="12.5%">
+                    </colgroup>
+                    <thead class="tableHead">
+                        <tr>
+                            <td>검색조건1</td>
+                            <td>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </td>
+                            <td>검색조건2</td>
+                            <td>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </td>
+                            <td>검색조건3</td>
+                            <td>
+                                <input type="text" class="form-control-sm" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            </td>
+                            <td>검색조건4</td>
+                            <td>
+                                <input type="text" class="form-control-sm" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>--%>
+            <!-- 상단 버튼 -->
+<%--            <div style="text-align: right">
+                <button type="button" class="btn btn-secondary btn-sm" style="width: 70px">조회</button>
+                <button type="button" class="btn btn-secondary btn-sm" style="width: 70px">엑셀</button>
+            </div>--%>
+            <!-- 데이터 테이블 -->
+            <div style="padding-top: 10px;">
+                <p>-조회결과-</p>
+                <table class="table table-bordered" style="text-align: center">
+                    <thead class="tableHead">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">제목</th>
+                            <th scope="col">작성일</th>
+                            <th scope="col">작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody" class="tableBody"></tbody>
+                </table>
+            </div>
         </form>
+        <!-- 페이지 -->
         <div id="pageDiv" class="pageDiv">
             <nav aria-label="...">
                 <ul id="pagination" class="pagination pagination-sm" style="justify-content : center;"></ul>
