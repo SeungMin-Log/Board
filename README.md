@@ -1,7 +1,6 @@
-# 전자정부 4.0.0
-
-# JAVA 11
-
-# Maria DB
-
-#기본게시판 프로젝트
+기본 게시판 구성(개발환경)
+EgovFrame 4.0.0
+JDK 11
+MariaDB
+MyBatis
+AJAX
