@@ -20,6 +20,7 @@ public class BoardController {
     @Resource(name = "boardService")
     private BoardService service;
 
+    /* 게시판 메인페이지 */
     @RequestMapping(value = "/boardList.do")
     public ModelAndView boardList(){
         ModelAndView mav = new ModelAndView();
@@ -28,6 +29,29 @@ public class BoardController {
         return mav;
     }
 
+    /* 게시판 등록페이지 */
+    @RequestMapping(value = "/boardWritePop.do")
+    public ModelAndView boardWritePop(HttpServletRequest request, HttpServletResponse response, @RequestParam Map<String, Object> commandMap) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        String resultURL = "boardWrite";
+        mav.setViewName(resultURL);
+        return mav;
+    }
+
+    /* 게시판 수정페이지 */
+    @RequestMapping(value = "/boardModifyPop.do")
+    public ModelAndView boardModifyPop(HttpServletRequest request, HttpServletResponse response, @RequestParam Map<String, Object> commandMap) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        String resultURL = "boardModify";
+
+        Map<String, Object> detailData = service.getDetail(commandMap);
+
+        mav.addObject("detailData", detailData);
+        mav.setViewName(resultURL);
+        return mav;
+    }
+
+    /* 게시판 메인 리스트 가져오기 */
     @RequestMapping(value = "/getList.do")
     @ResponseBody
     public Map<String, Object> getList(HttpServletRequest request, HttpServletResponse response, @RequestParam Map<String, Object> commandMap) throws Exception {

@@ -22,4 +22,15 @@
             FROM  BOARD
         ) AS COUNT
     </select>
+
+    <select id="getDetail" resultType="HashMap">
+        SELECT
+            BOARD_NO,
+            BOARD_TITLE,
+            DATE_FORMAT(REG_DT, '%Y-%m-%d') AS REG_DT,
+            REG_ID
+        FROM  BOARD
+        WHERE 1=1
+        AND BOARD_NO = #{BOARD_NO}
+    </select>
 </mapper>

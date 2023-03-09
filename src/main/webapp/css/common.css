@@ -24,7 +24,7 @@ body {
 
 header {
     width: 100%;
-    background-color: var(--white);
+    background-color: var(--navy);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,7 +42,7 @@ header .fa-accusoft {
 }
 
 header span {
-    color: var(--black);
+    color: var(--white);
 }
 
 /* menu */
@@ -52,7 +52,7 @@ header .menu {
 
 header .menu a {
     padding: calc(var(--padding) * 2) calc(var(--padding) * 2);
-    color: var(--black);
+    color: var(--white);
 }
 /* share */
 header .share {

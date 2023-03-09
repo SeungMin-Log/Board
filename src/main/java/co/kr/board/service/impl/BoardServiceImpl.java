@@ -23,4 +23,9 @@ public class BoardServiceImpl implements BoardService {
     public int getListCount(Map<String, Object> commandMap) {
         return mapper.getListCount(commandMap);
     }
+
+    @Override
+    public Map<String, Object> getDetail(Map<String, Object> commandMap) {
+        return mapper.getDetail(commandMap);
+    }
 }

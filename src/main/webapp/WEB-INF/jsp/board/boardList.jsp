@@ -2,17 +2,7 @@
 <html>
 <head>
     <title>게시판</title>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <!-- Custom CommonJS -->
-    <script src="/js/common.js"></script>
-    <!-- Custom CommonCSS -->
-    <link rel="stylesheet" type="text/css" href="/css/common.css">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <%@include file="/WEB-INF/jsp/board/boardLayOut.jsp"%>
     <script>
         /* OnLoad 함수 */
         $(function(){
@@ -41,7 +31,7 @@
             $("#tableBody").empty();
             var html = "";
             for (var i=0; i<list.length; i++){
-                html += "<tr style='cursor:pointer')>";
+                html += "<tr style='cursor:pointer' onclick='goModify("+list[i].BOARD_NO+")')>";
                 /* 각 컬럼명 작성하면됨 */
                 html += "<td>"+list[i].BOARD_NO+"</td>";
                 html += "<td>"+list[i].BOARD_TITLE+"</td>";
@@ -94,24 +84,38 @@
 
             $("#pagination").append(html);
         }
+
+        /* 등록팝업 출력 */
+        function goWrite(){
+            var url = "/boardWritePop.do";
+            var name = "writePop";
+
+            callPopUp(url, 1000, 500);
+        }
+
+        /* 수정팝업 출력 */
+        function goModify(BOARD_NO){
+            var url = "/boardModifyPop.do?BOARD_NO=" + BOARD_NO;
+            var name = "modifyPop";
+
+            callPopUp(url, 1000, 400);
+        }
     </script>
 </head>
 <body>
     <header>
         <div class="logo">
             <i class="fab fa-accusoft"></i>
-            <h2>Board</h2>
+            <span>포트폴리오</span>
         </div>
         <div class="menu">
-            <a href="#" class="item item1">Menu</a>
-            <a href="#" class="item item2">Menu</a>
-            <a href="#" class="item item3">Menu</a>
-            <a href="#" class="item item4">Menu</a>
-            <a href="#" class="item item5">Menu</a>
+            <a href="/boardList.do" class="item item1">게시판</a>
+            <a href="#" class="item item2">차트</a>
+            <a href="#" class="item item3">지도</a>
+            <a href="#" class="item item4">관리자</a>
         </div>
     </header>
     <div class="container" style="padding-top: 30px">
-        <h1 style="padding-bottom: 10px;">테스트</h1>
         <form id="searchForm" action="">
             <!-- 현재 페이지 -->
             <input id="currentPage" name="currentPage" hidden="hidden">
@@ -167,8 +171,8 @@
             </div>--%>
             <!-- 데이터 테이블 -->
             <div style="padding-top: 10px;">
-                <p>-조회결과-</p>
-                <table class="table table-bordered" style="text-align: center">
+                <h3>-게시판-</h3>
+                <table class="table table-striped table-hover table-bordered" style="text-align: center">
                     <thead class="tableHead">
                         <tr>
                             <th scope="col">#</th>
@@ -181,10 +185,14 @@
                 </table>
             </div>
         </form>
+        <!-- 하단 버튼 -->
+        <div>
+            <button type="button" onclick="goWrite();" class="btn btn-primary btn-sm" style="width: 50px; display :inline-block; float: right;">등록</button>
+        </div>
         <!-- 페이지 -->
         <div id="pageDiv" class="pageDiv">
             <nav aria-label="...">
-                <ul id="pagination" class="pagination pagination-sm" style="justify-content : center;"></ul>
+                <ul id="pagination" class="pagination pagination-sm" style="justify-content : center; text-align: center"></ul>
             </nav>
         </div>
     </div>
