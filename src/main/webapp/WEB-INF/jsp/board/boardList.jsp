@@ -1,16 +1,28 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: USER
-  Date: 2023-03-09
-  Time: 오전 11:09
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>BoardList</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/js/common.js"></script>
 </head>
 <body>
+    <script>
+        $(function(){
+            goSearch();
+        })
 
+        function goSearch(){
+            var url = "/getList.do";
+            var successFunction = function(result){
+
+            }
+            var errorFunction = function(error){
+
+            }
+            var async = "";
+
+            ajaxCall(url, "", successFunction, errorFunction, async)
+        }
+    </script>
 </body>
 </html>
