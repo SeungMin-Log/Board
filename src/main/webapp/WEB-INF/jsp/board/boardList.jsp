@@ -89,7 +89,6 @@
         function goWrite(){
             var url = "/boardWritePop.do";
             var name = "writePop";
-
             callPopUp(url, 1000, 500);
         }
 
@@ -97,8 +96,7 @@
         function goModify(BOARD_NO){
             var url = "/boardModifyPop.do?BOARD_NO=" + BOARD_NO;
             var name = "modifyPop";
-
-            callPopUp(url, 1000, 400);
+            callPopUp(url, 1000, 500);
         }
     </script>
 </head>
@@ -115,7 +113,7 @@
             <a href="#" class="item item4">관리자</a>
         </div>
     </header>
-    <div class="container" style="padding-top: 30px">
+    <div class="container" style="padding-top: 100px">
         <form id="searchForm" action="">
             <!-- 현재 페이지 -->
             <input id="currentPage" name="currentPage" hidden="hidden">

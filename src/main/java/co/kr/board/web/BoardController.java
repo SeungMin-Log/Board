@@ -111,4 +111,12 @@ public class BoardController {
         result.put("currentPage", currentPage);
         return result;
     }
+
+    @RequestMapping(value = "/cssPage.do")
+    public ModelAndView cssPage(){
+        ModelAndView mav = new ModelAndView();
+        String resultUrl = "css";
+        mav.setViewName(resultUrl);
+        return mav;
+    }
 }
