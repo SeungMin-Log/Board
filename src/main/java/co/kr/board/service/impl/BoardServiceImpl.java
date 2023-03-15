@@ -28,4 +28,19 @@ public class BoardServiceImpl implements BoardService {
     public Map<String, Object> getDetail(Map<String, Object> commandMap) {
         return mapper.getDetail(commandMap);
     }
+
+    @Override
+    public int boardWrite(Map<String, Object> commandMap) throws Exception {
+        return mapper.boardWrite(commandMap);
+    }
+
+    @Override
+    public int boardModify(Map<String, Object> commandMap) throws Exception {
+        return mapper.boardModify(commandMap);
+    }
+
+    @Override
+    public int boardDelete(Map<String, Object> commandMap) throws Exception {
+        return mapper.boardDelete(commandMap);
+    }
 }

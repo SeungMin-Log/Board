@@ -13,4 +13,10 @@ public interface BoardMapper {
     public int getListCount(Map<String, Object> commandMap);
 
     public Map<String, Object> getDetail(Map<String, Object> commandMap);
+
+    public int boardWrite(Map<String, Object> commandMap) throws Exception;
+
+    public int boardModify(Map<String, Object> commandMap) throws Exception;
+
+    public int boardDelete(Map<String, Object> commandMap) throws Exception;
 }

@@ -3,6 +3,7 @@ package co.kr.board.web;
 import co.kr.board.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -112,11 +114,30 @@ public class BoardController {
         return result;
     }
 
-    @RequestMapping(value = "/cssPage.do")
-    public ModelAndView cssPage(){
-        ModelAndView mav = new ModelAndView();
-        String resultUrl = "css";
-        mav.setViewName(resultUrl);
-        return mav;
+    /* 게시판 등록/수정/삭제 */
+    @ResponseBody
+    @RequestMapping(value = "/boardCud.do", method = RequestMethod.POST)
+    public Map<String,Object> boardCud(HttpServletRequest request, HttpServletResponse response, @RequestParam Map<String, Object> commandMap) throws Exception {
+        int resultCode = 0;
+        String mode = commandMap.get("mode").toString();
+
+        try {
+            if (mode.equals("write")){
+                resultCode = service.boardWrite(commandMap);
+            } else if (mode.equals("modify")) {
+                resultCode = service.boardModify(commandMap);
+            } else if (mode.equals("delete")) {
+                resultCode = service.boardDelete(commandMap);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("resultCode", resultCode);
+        return result;
     }
+
 }

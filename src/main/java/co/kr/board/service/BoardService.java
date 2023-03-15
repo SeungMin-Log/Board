@@ -10,4 +10,10 @@ public interface BoardService {
     public int getListCount(Map<String, Object> commandMap);
 
     public Map<String, Object> getDetail(Map<String, Object> commandMap);
+
+    public int boardWrite(Map<String, Object> param) throws Exception;
+
+    public int boardModify(Map<String, Object> param) throws Exception;
+
+    public int boardDelete(Map<String, Object> param) throws Exception;
 }

@@ -98,6 +98,21 @@
             var name = "modifyPop";
             callPopUp(url, 1000, 500);
         }
+
+        /* 차트 */
+        function goChart(){
+            alert("차트 기능 준비중입니다");
+        }
+
+        /* 지도 */
+        function goMap(){
+            alert("지도 기능 준비중입니다");
+        }
+
+        /* 관리자 */
+        function goAdmin(){
+            alert("관리자 기능 준비중입니다");
+        }
     </script>
 </head>
 <body>
@@ -108,9 +123,9 @@
         </div>
         <div class="menu">
             <a href="/boardList.do" class="item item1">게시판</a>
-            <a href="#" class="item item2">차트</a>
-            <a href="#" class="item item3">지도</a>
-            <a href="#" class="item item4">관리자</a>
+            <a href="#" onclick="goChart();" class="item item2">차트</a>
+            <a href="#" onclick="goMap();" class="item item3">지도</a>
+            <a href="#" onclick="goAdmin();" class="item item4">관리자</a>
         </div>
     </header>
     <div class="container" style="padding-top: 100px">
